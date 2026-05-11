@@ -1,3 +1,5 @@
+// --- Imports ---
+
 import { motion, useScroll, useSpring, AnimatePresence } from "motion/react";
 import { useEffect, useState, useRef } from "react";
 import { 
@@ -36,8 +38,17 @@ import Lenis from "lenis";
 import { cn } from "@/src/lib/utils";
 import profileImg from "./Profile.png";
 
+/**
+ * Dhiraj Kushwaha - Portfolio
+ * A cinematic, high-performance portfolio for a Product & SaaS Specialist.
+ * Focused on systems, analytics, and automation.
+ */
+
 // --- Components ---
 
+/**
+ * TypewriterText: Handles the typing animation for phrases in the hero section.
+ */
 const TypewriterText = ({ phrases }: { phrases: string[] }) => {
   const [index, setIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
@@ -81,6 +92,9 @@ const TypewriterText = ({ phrases }: { phrases: string[] }) => {
   );
 };
 
+/**
+ * Navbar: Sticky navigation bar with blur effects and mobile compatibility.
+ */
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -170,6 +184,9 @@ const Navbar = () => {
   );
 };
 
+/**
+ * Hero: The landing section with primary value proposition and visual orbital effect.
+ */
 const Hero = () => {
   const summaryRole = ["Product Analyst", "SaaS Builder", "Project Strategist", "Execution Specialist"];
   const [roleIndex, setRoleIndex] = useState(0);
@@ -271,7 +288,7 @@ Currently focused on building automation-driven experiences, product workflows, 
                     <div className="absolute inset-0 bg-blue-500/5 animate-pulse" />
                     <div className="absolute inset-2 overflow-hidden rounded-full border border-white/10 z-10">
                         <img 
-                          src="/src/Profile.png" 
+                          src={profileImg} 
                           alt="Dhiraj Kushwaha" 
                           className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 scale-110 group-hover:scale-100"
                           referrerPolicy="no-referrer"
@@ -356,6 +373,9 @@ Currently focused on building automation-driven experiences, product workflows, 
   );
 };
 
+/**
+ * ProjectShowcase: Highlights key SaaS projects with detailed stats and visuals.
+ */
 const ProjectShowcase = () => {
     const projects = [
         {
@@ -654,6 +674,9 @@ const ProjectShowcase = () => {
     );
 };
 
+/**
+ * LiveActivityFeed: A subtle, real-time looking status feed on the bottom corner.
+ */
 const LiveActivityFeed = () => {
     const activities = [
         "Optimizing workflow automation...",
@@ -710,6 +733,9 @@ const LiveActivityFeed = () => {
     );
 };
 
+/**
+ * DecisionSimulator: Interactive strategy simulation to showcase problem-solving mindset.
+ */
 const DecisionSimulator = ({ onRef }: { onRef?: (el: HTMLElement | null) => void }) => {
     const scenarios = [
         {
@@ -842,6 +868,9 @@ const DecisionSimulator = ({ onRef }: { onRef?: (el: HTMLElement | null) => void
     );
 };
 
+/**
+ * Experience: Detailed career timeline with impact metrics and toolkit badges.
+ */
 const Experience = () => {
     const roles = [
       {
@@ -940,6 +969,9 @@ const Experience = () => {
     );
 };
 
+/**
+ * Skills: Categorized skill nodes with an expandable modal for detailed impact reports.
+ */
 const Skills = ({ onHoverSkill }: { onHoverSkill: (id: string | null) => void }) => {
   const [activeNode, setActiveNode] = useState<any>(null);
 
@@ -1106,6 +1138,9 @@ const Skills = ({ onHoverSkill }: { onHoverSkill: (id: string | null) => void })
   );
 };
 
+/**
+ * Contact: Final CTA section with direct communication channels and social links.
+ */
 const Contact = () => {
     return (
         <section id="contact" className="py-40 px-8 relative overflow-hidden">
@@ -1158,6 +1193,10 @@ const Contact = () => {
 
 // --- Main Page ---
 
+/**
+ * App: Main entry point of the application.
+ * Manages global scroll effects, Lenis smooth scrolling, and common background layers.
+ */
 export default function App() {
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
