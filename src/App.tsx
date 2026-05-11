@@ -34,6 +34,7 @@ import {
 } from "lucide-react";
 import Lenis from "lenis";
 import { cn } from "@/src/lib/utils";
+import profileImg from "./Profile.png";
 
 // --- Components ---
 
@@ -111,7 +112,7 @@ const Navbar = () => {
         >
           <div className="w-9 h-9 rounded-xl overflow-hidden border border-white/10 shadow-lg flex items-center justify-center bg-gray-800">
             <img 
-              src="/src/Profile.png" 
+              src={profileImg} 
               alt="DK" 
               className="w-full h-full object-cover"
               referrerPolicy="no-referrer"
